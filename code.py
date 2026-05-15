@@ -37,8 +37,10 @@ def x_moving():
     global stop, choice, Diff, round
     if round == 1:
         Diff = 0.5
-    else:
+    elif round == 2:
         Diff = 0.3
+    else:
+        Diff = 0.1
     while True:
         for move in range(9):
             if board[move] == " " and not stop:
@@ -78,6 +80,12 @@ while True:
             x = 0
             board = [" " for _ in range(9)]
             input("Ready for round 2?")
+        elif round == 2:
+            print("You win!")
+            round += 1
+            x = 0
+            board = [" " for _ in range(9)]
+            input("Ready for round 3?")
         else:
             print("Congratulations! You've completed the game!")
             answer = input("Do you want to play again? (y/n): ").lower()
